@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Istok+Web:ital,wght@0,400;0,700;1,400;1,700&family=Playwrite+CU+Guides&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Irish+Grover&family=Istok+Web:ital,wght@0,400;0,700;1,400;1,700&family=Playwrite+CU+Guides&display=swap');
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+header {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  text-align: center;
+unicode-bidi: normal;
+}
+.tit {
+color: #ffffff;
+ font-size: 80px;
+  font-weight: bold;
+  margin: 33px;
+  padding-top: 40px; 
+  grid-column: 1/1;
+  grid-row: 1;
+  padding-right: 70px;
+  -webkit-text-stroke: 0.10rem rgba(100, 40, 40, 0.85);
+  font-family: 'Irish Grover';
+}
+.subtitle {
+  color: #ffffff;
+  margin: 48px;
+  padding: 0;
+  grid-column: 1/1 ;
+  grid-row: 1;
+  font-size: 40px;
+  padding-right: 70px;
+   -webkit-text-stroke: 0.15rem rgba(100, 40, 40, 0.85);
+   font-family: 'Istok Web';
+   font-weight: bold;
+}
+.container{                          /* Foto */
+  width: 534px;
+  height: 547px;
+  padding: 0;
+  margin-left: 100px;
+ grid-column: start 40px;
+ border-radius: 346px;
+ grid-row: 1;
+
+}
+/*Finish*/
+
+.text{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px;
+  text-align: center;
+  place-items: center;
+}
+.memib,  .workb {
+  background-color: #D9D9D9;
+  width: 417.38px;
+  height: 163.2px;
+font-size: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 80px;
+  margin-left: 40px;
+
+}
+.memes{
+  grid-column: 1/1;
+}
+.blog{
+  grid-column: 2/2;
+}  
+.work{
+  grid-column: 3/3;
+}
+.meme1,  .work1 {
+  width: 498.82px;
+  height: 279.34px;
+  border-radius: 65px;
+  margin-top: 40px;
+}
+.blog1{
+  width: 366.28px;
+  height: 279.34px;
+  border-radius: 65px;
+  margin-top: 40px;
+}
+.blogb{
+  background-color: #D9D9D9;
+  width: 417.38px;
+  height: 163.2px;
+font-size: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 80px;
+  margin-left: 0px;
+}
+.mem, .wr, .bg {
+  color: #000000;
+  font-weight: bold;
+  text-decoration: none;
+}
+.mem:hover, .wr:hover, .bg:hover {
+  color: #3879897c;
+  text-decoration: underline;
+  font-size: 65px;
+}
+
+.footer {
+   display: grid;
+  background-color: #ffffff;
+  padding: 20px;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+.first {
+grid-template-columns: 1fr 1fr;
+grid-column: 1/1;
+font-size: 32px;
+background: linear-gradient(to right, #117C46, #12aa07cc, #159E5A, #082516);
+align-items: center;
+text-align: center;
+border-radius: 148px;
+}
+.tik, .instag, .face, .tw {
+  color: #000000;
+  text-decoration: none;
+  font-weight: bold;
+  grid-column: 1/1;
+
+}
+.tik:hover, .instag:hover, .face:hover, .tw:hover {
+  color: #fcfcfc7c;
+  text-decoration: underline;
+  font-size: 40px;
+}
+ .fb, .x, .insta {
+  width: 30px;
+  height: 30px;
+  margin-top: 10px;
+  grid-column: 2/2;
+}
+.tt {
+  width: 70px;
+  height: 40px;
+  margin-top: 10px;
+  grid-column: 2/2;
+
+}
+.second {
+  grid-column: 2/2;
+  font-size: 32px;
+  background: linear-gradient(to right, #117C46, #12aa07cc, #159E5A, #082516);
+align-items: center;
+text-align: center;
+border-radius: 148px;
+}
+.proj, .cont, .prod, .about, .shop {
+  color: #000000;
+  text-decoration: none;
+  font-weight: bold;
+  
+
+}
+.proj:hover, .cont:hover, .prod:hover, .about:hover, .shop:hover {
+  color: #ffffff7c;
+  text-decoration: underline;
+  font-size: 40px;
+}
+.button {
+place-self: end;
+  width: 155px;
+  height: 84px;
+  background-color: #D9D9D9;
+  color: #000000;
+  border: none;
+  padding: 0px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 54px;
+
+}
+.button:hover {
+  background-color: #3879897c;
+  color: #ffffff;
+}
+.supportimg {
+  display: block;
+  width: 60px;
+  height: 60px;
+ justify-content: top;
+padding: 0px;
+margin: 0;
+}
+.support {
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  font-size: 20px;
+  margin: 0;
+}
