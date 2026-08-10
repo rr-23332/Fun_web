@@ -1,0 +1,928 @@
+{
+  "cars": [
+    {
+      "id": 1,
+      "title": "Porsche 911 Carrera RS 2.7",
+      "brand": "Porsche",
+      "model": "911 Carrera RS 2.7",
+      "year": 1973,
+      "price": 485000,
+      "currency": "USD",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Porsche_911_Carrera_RS_2.7_white-red_1973_b.jpg/1280px-Porsche_911_Carrera_RS_2.7_white-red_1973_b.jpg",
+      "location": "Copenhagen, Denmark",
+      "owner": {
+        "name": "Oleksandr K.",
+        "verified": true,
+        "memberSince": 2020
+      },
+      "engine": {
+        "type": "Boxer-6",
+        "volume": 2.7,
+        "powerHp": 210,
+        "fuel": "Petrol"
+      },
+      "specifications": {
+        "transmission": "5-speed Manual",
+        "drivetrain": "RWD",
+        "weightKg": 1075,
+        "topSpeedKmh": 245
+      },
+      "features": [
+        "Ducktail spoiler",
+        "Lightweight body",
+        "Original interior"
+      ],
+      "tags": [
+        "classic",
+        "sports",
+        "collector"
+      ],
+      "isModified": false,
+      "isFeatured": true,
+      "isAvailable": true,
+      "mileageKm": 64200,
+      "rating": 4.9,
+      "specialFeature": "One of 1580 produced"
+    },
+    {
+      "id": 2,
+      "title": "BMW M3 E30 Coupe",
+      "brand": "BMW",
+      "model": "M3 E30",
+      "year": 1988,
+      "price": 125000,
+      "currency": "EUR",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/BMW_M3_E30_%289354020942%29.jpg/1280px-BMW_M3_E30_%289354020942%29.jpg",
+      "location": "Munich, Germany",
+      "owner": {
+        "name": "Hans M.",
+        "verified": true,
+        "memberSince": 2018
+      },
+      "engine": {
+        "type": "Inline-4",
+        "volume": 2.3,
+        "powerHp": 200,
+        "fuel": "Petrol"
+      },
+      "specifications": {
+        "transmission": "5-speed Dogleg Manual",
+        "drivetrain": "RWD",
+        "weightKg": 1200,
+        "topSpeedKmh": 235
+      },
+      "features": [
+        "Dogleg manual gearbox",
+        "Limited-slip differential",
+        "BBS wheels"
+      ],
+      "tags": [
+        "classic",
+        "sports",
+        "homologation"
+      ],
+      "isModified": false,
+      "isFeatured": true,
+      "isAvailable": true,
+      "mileageKm": 112000,
+      "rating": 4.8,
+      "specialFeature": "DTM Touring Car homologation icon"
+    },
+    {
+      "id": 3,
+      "title": "Toyota Supra RZ (JZA80)",
+      "brand": "Toyota",
+      "model": "Supra RZ",
+      "year": 1994,
+      "price": 145000,
+      "currency": "USD",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Toyota_Supra_JZA80_001.jpg/1280px-Toyota_Supra_JZA80_001.jpg",
+      "location": "Tokyo, Japan",
+      "owner": {
+        "name": "Hiroshi S.",
+        "verified": false,
+        "memberSince": 2021
+      },
+      "engine": {
+        "type": "Inline-6 Twin-Turbo",
+        "volume": 3.0,
+        "powerHp": 320,
+        "fuel": "Petrol"
+      },
+      "specifications": {
+        "transmission": "6-speed Manual",
+        "drivetrain": "RWD",
+        "weightKg": 1510,
+        "topSpeedKmh": 250
+      },
+      "features": [
+        "2JZ-GTE Legendary engine",
+        "Active front spoiler",
+        "OEM wing"
+      ],
+      "tags": [
+        "JDM",
+        "sports",
+        "collector"
+      ],
+      "isModified": true,
+      "isFeatured": true,
+      "isAvailable": true,
+      "mileageKm": 89000,
+      "rating": 4.9,
+      "specialFeature": "Completely stock, rare twin-turbo 6-speed"
+    },
+    {
+      "id": 4,
+      "title": "Ferrari F40",
+      "brand": "Ferrari",
+      "model": "F40",
+      "year": 1990,
+      "price": 2800000,
+      "currency": "USD",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Ferrari_F40_20090510.jpg/1280px-Ferrari_F40_20090510.jpg",
+      "location": "Maranello, Italy",
+      "owner": {
+        "name": "Giovanni R.",
+        "verified": true,
+        "memberSince": 2015
+      },
+      "engine": {
+        "type": "V8 Twin-Turbo",
+        "volume": 2.9,
+        "powerHp": 478,
+        "fuel": "Petrol"
+      },
+      "specifications": {
+        "transmission": "5-speed Manual",
+        "drivetrain": "RWD",
+        "weightKg": 1100,
+        "topSpeedKmh": 324
+      },
+      "features": [
+        "Kevlar and Carbon body",
+        "No driver aids",
+        "Plexiglass windows"
+      ],
+      "tags": [
+        "supercar",
+        "classic",
+        "collector"
+      ],
+      "isModified": false,
+      "isFeatured": true,
+      "isAvailable": true,
+      "mileageKm": 12500,
+      "rating": 5.0,
+      "specialFeature": "Last car approved by Enzo Ferrari"
+    },
+    {
+      "id": 5,
+      "title": "Tesla Model S Plaid",
+      "brand": "Tesla",
+      "model": "Model S Plaid",
+      "year": 2022,
+      "price": 95000,
+      "currency": "USD",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/2018_Tesla_Model_S_100D_Front.jpg/1280px-2018_Tesla_Model_S_100D_Front.jpg",
+      "location": "Palo Alto, USA",
+      "owner": {
+        "name": "Sarah J.",
+        "verified": true,
+        "memberSince": 2023
+      },
+      "engine": {
+        "type": "Tri-Motor Electric",
+        "volume": 0.0,
+        "powerHp": 1020,
+        "fuel": "Electric"
+      },
+      "specifications": {
+        "transmission": "Single-speed",
+        "drivetrain": "AWD",
+        "weightKg": 2162,
+        "topSpeedKmh": 322
+      },
+      "features": [
+        "Yoke steering",
+        "Autopilot",
+        "Carbon-sleeved rotors"
+      ],
+      "tags": [
+        "electric",
+        "modern",
+        "sedan"
+      ],
+      "isModified": false,
+      "isFeatured": false,
+      "isAvailable": true,
+      "mileageKm": 18000,
+      "rating": 4.6,
+      "specialFeature": "0-60 mph in 1.99 seconds"
+    },
+    {
+      "id": 6,
+      "title": "Lamborghini Countach LP400 S",
+      "brand": "Lamborghini",
+      "model": "Countach LP400 S",
+      "year": 1980,
+      "price": 650000,
+      "currency": "USD",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Lamborghini_Countach_LP400%28S%29_%28cropped%29.jpg/1280px-Lamborghini_Countach_LP400%28S%29_%28cropped%29.jpg",
+      "location": "Sant'Agata, Italy",
+      "owner": {
+        "name": "Marcello G.",
+        "verified": true,
+        "memberSince": 2012
+      },
+      "engine": {
+        "type": "V12",
+        "volume": 3.9,
+        "powerHp": 353,
+        "fuel": "Petrol"
+      },
+      "specifications": {
+        "transmission": "5-speed Manual",
+        "drivetrain": "RWD",
+        "weightKg": 1450,
+        "topSpeedKmh": 292
+      },
+      "features": [
+        "Scissor doors",
+        "Campagnolo Bravo wheels",
+        "Famous rear wing"
+      ],
+      "tags": [
+        "supercar",
+        "classic",
+        "collector"
+      ],
+      "isModified": false,
+      "isFeatured": true,
+      "isAvailable": true,
+      "mileageKm": 31000,
+      "rating": 4.8,
+      "specialFeature": "Series II Countach with distinctive wide arches"
+    },
+    {
+      "id": 7,
+      "title": "Chevrolet Corvette C3 Stingray",
+      "brand": "Chevrolet",
+      "model": "Corvette C3",
+      "year": 1969,
+      "price": 45000,
+      "currency": "USD",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/69_Corvette_C3_Stingray.jpg/1280px-69_Corvette_C3_Stingray.jpg",
+      "location": "Austin, USA",
+      "owner": {
+        "name": "Bobby T.",
+        "verified": false,
+        "memberSince": 2019
+      },
+      "engine": {
+        "type": "V8 Big Block",
+        "volume": 7.0,
+        "powerHp": 435,
+        "fuel": "Petrol"
+      },
+      "specifications": {
+        "transmission": "4-speed Manual",
+        "drivetrain": "RWD",
+        "weightKg": 1480,
+        "topSpeedKmh": 245
+      },
+      "features": [
+        "T-top removable roof panels",
+        "Side exhaust pipes",
+        "Pop-up headlights"
+      ],
+      "tags": [
+        "classic",
+        "muscle",
+        "sports"
+      ],
+      "isModified": true,
+      "isFeatured": false,
+      "isAvailable": true,
+      "mileageKm": 98500,
+      "rating": 4.5,
+      "specialFeature": "Legendary L71 427 Tri-Power engine package"
+    },
+    {
+      "id": 8,
+      "title": "Mercedes-Benz 300SL Gullwing",
+      "brand": "Mercedes-Benz",
+      "model": "300SL Gullwing",
+      "year": 1955,
+      "price": 1750000,
+      "currency": "EUR",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Mercedes-Benz_300_SL_Gullwing_%28W_198%29_-_Flickr_-_m93_%28cropped%29.jpg/1280px-Mercedes-Benz_300_SL_Gullwing_%28W_198%29_-_Flickr_-_m93_%28cropped%29.jpg",
+      "location": "Stuttgart, Germany",
+      "owner": {
+        "name": "Dieter S.",
+        "verified": true,
+        "memberSince": 2010
+      },
+      "engine": {
+        "type": "Inline-6",
+        "volume": 3.0,
+        "powerHp": 215,
+        "fuel": "Petrol"
+      },
+      "specifications": {
+        "transmission": "4-speed Manual",
+        "drivetrain": "RWD",
+        "weightKg": 1500,
+        "topSpeedKmh": 260
+      },
+      "features": [
+        "Gullwing doors",
+        "Direct fuel injection",
+        "Tubular spaceframe"
+      ],
+      "tags": [
+        "classic",
+        "collector",
+        "luxury"
+      ],
+      "isModified": false,
+      "isFeatured": true,
+      "isAvailable": false,
+      "mileageKm": 48300,
+      "rating": 5.0,
+      "specialFeature": "The world's first production fuel-injected passenger car"
+    },
+    {
+      "id": 9,
+      "title": "Nissan Skyline GT-R R34",
+      "brand": "Nissan",
+      "model": "Skyline GT-R R34",
+      "year": 1999,
+      "price": 220000,
+      "currency": "USD",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Nissan_Skyline_R34_GT-R_Active_Red.jpg/1280px-Nissan_Skyline_R34_GT-R_Active_Red.jpg",
+      "location": "Osaka, Japan",
+      "owner": {
+        "name": "Kenji T.",
+        "verified": true,
+        "memberSince": 2022
+      },
+      "engine": {
+        "type": "Inline-6 Twin-Turbo",
+        "volume": 2.6,
+        "powerHp": 280,
+        "fuel": "Petrol"
+      },
+      "specifications": {
+        "transmission": "6-speed Manual",
+        "drivetrain": "AWD",
+        "weightKg": 1560,
+        "topSpeedKmh": 250
+      },
+      "features": [
+        "ATTESA E-TS AWD system",
+        "Super HICAS 4-wheel steering",
+        "Multi-function dash display"
+      ],
+      "tags": [
+        "JDM",
+        "sports",
+        "collector"
+      ],
+      "isModified": true,
+      "isFeatured": true,
+      "isAvailable": true,
+      "mileageKm": 72400,
+      "rating": 4.9,
+      "specialFeature": "V-Spec package in beautiful Bayside Blue"
+    },
+    {
+      "id": 10,
+      "title": "Aston Martin DB5",
+      "brand": "Aston Martin",
+      "model": "DB5",
+      "year": 1964,
+      "price": 950000,
+      "currency": "GBP",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Aston_Martin_DB5_-_Flickr_-_m93.jpg/1280px-Aston_Martin_DB5_-_Flickr_-_m93.jpg",
+      "location": "London, UK",
+      "owner": {
+        "name": "Charles B.",
+        "verified": true,
+        "memberSince": 2014
+      },
+      "engine": {
+        "type": "Inline-6",
+        "volume": 4.0,
+        "powerHp": 282,
+        "fuel": "Petrol"
+      },
+      "specifications": {
+        "transmission": "5-speed Manual",
+        "drivetrain": "RWD",
+        "weightKg": 1502,
+        "topSpeedKmh": 230
+      },
+      "features": [
+        "Wire wheels",
+        "Wool pile carpets",
+        "Chrome bumpers"
+      ],
+      "tags": [
+        "classic",
+        "luxury",
+        "collector"
+      ],
+      "isModified": false,
+      "isFeatured": true,
+      "isAvailable": true,
+      "mileageKm": 54000,
+      "rating": 4.9,
+      "specialFeature": "The quintessential James Bond grand tourer"
+    },
+    {
+      "id": 11,
+      "title": "Audi Sport Quattro",
+      "brand": "Audi",
+      "model": "Sport Quattro",
+      "year": 1984,
+      "price": 620000,
+      "currency": "EUR",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Audi_Sport_Quattro_-_Retro_Classics_2020_IMG_0396.jpg/1280px-Audi_Sport_Quattro_-_Retro_Classics_2020_IMG_0396.jpg",
+      "location": "Vienna, Austria",
+      "owner": {
+        "name": "Walter R.",
+        "verified": true,
+        "memberSince": 2017
+      },
+      "engine": {
+        "type": "Inline-5 Turbo",
+        "volume": 2.1,
+        "powerHp": 306,
+        "fuel": "Petrol"
+      },
+      "specifications": {
+        "transmission": "5-speed Manual",
+        "drivetrain": "AWD",
+        "weightKg": 1298,
+        "topSpeedKmh": 250
+      },
+      "features": [
+        "Kevlar composite body panels",
+        "Short wheelbase",
+        "Quattro AWD"
+      ],
+      "tags": [
+        "classic",
+        "homologation",
+        "track"
+      ],
+      "isModified": false,
+      "isFeatured": false,
+      "isAvailable": true,
+      "mileageKm": 35000,
+      "rating": 4.7,
+      "specialFeature": "One of only 214 road-going units built for Group B homologation"
+    },
+    {
+      "id": 12,
+      "title": "Mazda RX-7 FD Spirit R",
+      "brand": "Mazda",
+      "model": "RX-7 FD Spirit R",
+      "year": 2002,
+      "price": 110000,
+      "currency": "USD",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Mazda_RX-7_Spirit_R_Type_A_2002.jpg/1280px-Mazda_RX-7_Spirit_R_Type_A_2002.jpg",
+      "location": "Saitama, Japan",
+      "owner": {
+        "name": "Yuki M.",
+        "verified": false,
+        "memberSince": 2021
+      },
+      "engine": {
+        "type": "Twin-Rotor Rotary Twin-Turbo",
+        "volume": 1.3,
+        "powerHp": 280,
+        "fuel": "Petrol"
+      },
+      "specifications": {
+        "transmission": "5-speed Manual",
+        "drivetrain": "RWD",
+        "weightKg": 1270,
+        "topSpeedKmh": 256
+      },
+      "features": [
+        "13B-REW Rotary engine",
+        "BBS lightweight wheels",
+        "Recaro red carbon-Kevlar seats"
+      ],
+      "tags": [
+        "JDM",
+        "sports",
+        "collector"
+      ],
+      "isModified": false,
+      "isFeatured": true,
+      "isAvailable": true,
+      "mileageKm": 42000,
+      "rating": 4.8,
+      "specialFeature": "Limited Spirit R Edition Type-A, 1 of 1500"
+    },
+    {
+      "id": 13,
+      "title": "McLaren F1",
+      "brand": "McLaren",
+      "model": "F1",
+      "year": 1995,
+      "price": 20000000,
+      "currency": "USD",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/McLaren_F1_at_Gainsborough_02.jpg/1280px-McLaren_F1_at_Gainsborough_02.jpg",
+      "location": "Woking, UK",
+      "owner": {
+        "name": "Gordon M.",
+        "verified": true,
+        "memberSince": 2011
+      },
+      "engine": {
+        "type": "V12 (BMW S70/2)",
+        "volume": 6.1,
+        "powerHp": 627,
+        "fuel": "Petrol"
+      },
+      "specifications": {
+        "transmission": "6-speed Manual",
+        "drivetrain": "RWD",
+        "weightKg": 1138,
+        "topSpeedKmh": 386
+      },
+      "features": [
+        "Gold foil lined engine bay",
+        "Central driving position",
+        "Carbon fiber monocoque"
+      ],
+      "tags": [
+        "supercar",
+        "classic",
+        "collector"
+      ],
+      "isModified": false,
+      "isFeatured": true,
+      "isAvailable": true,
+      "mileageKm": 9400,
+      "rating": 5.0,
+      "specialFeature": "Still the fastest naturally aspirated production car ever"
+    },
+    {
+      "id": 14,
+      "title": "Ford Mustang Boss 302",
+      "brand": "Ford",
+      "model": "Mustang Boss 302",
+      "year": 1970,
+      "price": 95000,
+      "currency": "USD",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/1970_Ford_Mustang_Boss_302_Orange_at_2015_Rockville_Show_front_left.jpg/1280px-1970_Ford_Mustang_Boss_302_Orange_at_2015_Rockville_Show_front_left.jpg",
+      "location": "Detroit, USA",
+      "owner": {
+        "name": "Frank R.",
+        "verified": false,
+        "memberSince": 2019
+      },
+      "engine": {
+        "type": "V8",
+        "volume": 5.0,
+        "powerHp": 290,
+        "fuel": "Petrol"
+      },
+      "specifications": {
+        "transmission": "4-speed Manual",
+        "drivetrain": "RWD",
+        "weightKg": 1470,
+        "topSpeedKmh": 220
+      },
+      "features": [
+        "Hockey stick stripes",
+        "Hurst shifter",
+        "Rear deck lid spoiler"
+      ],
+      "tags": [
+        "classic",
+        "muscle",
+        "sports"
+      ],
+      "isModified": false,
+      "isFeatured": false,
+      "isAvailable": true,
+      "mileageKm": 87000,
+      "rating": 4.6,
+      "specialFeature": "Trans-Am road racing homologation specialty"
+    },
+    {
+      "id": 15,
+      "title": "Porsche 911 GT3 RS (992)",
+      "brand": "Porsche",
+      "model": "911 GT3 RS (992)",
+      "year": 2023,
+      "price": 315000,
+      "currency": "USD",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Porsche_992_GT3_RS_1X7A6263.jpg/1280px-Porsche_992_GT3_RS_1X7A6263.jpg",
+      "location": "Zuffenhausen, Germany",
+      "owner": {
+        "name": "Max W.",
+        "verified": true,
+        "memberSince": 2022
+      },
+      "engine": {
+        "type": "Boxer-6 Naturally Aspirated",
+        "volume": 4.0,
+        "powerHp": 518,
+        "fuel": "Petrol"
+      },
+      "specifications": {
+        "transmission": "7-speed PDK",
+        "drivetrain": "RWD",
+        "weightKg": 1450,
+        "topSpeedKmh": 296
+      },
+      "features": [
+        "DRS Active Rear Wing",
+        "Carbon-fiber reinforced plastic body",
+        "Steering wheel rotary knobs"
+      ],
+      "tags": [
+        "sports",
+        "modern",
+        "track"
+      ],
+      "isModified": false,
+      "isFeatured": true,
+      "isAvailable": true,
+      "mileageKm": 3200,
+      "rating": 4.9,
+      "specialFeature": "Unprecedented active motorsport aerodynamics"
+    },
+    {
+      "id": 16,
+      "title": "Mercedes-Benz AMG GT Black Series",
+      "brand": "Mercedes-Benz",
+      "model": "AMG GT Black Series",
+      "year": 2021,
+      "price": 425000,
+      "currency": "USD",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Mercedes-AMG_GT_Black_Series_%28C_190%29_IMG_3659.jpg/1280px-Mercedes-AMG_GT_Black_Series_%28C_190%29_IMG_3659.jpg",
+      "location": "Affalterbach, Germany",
+      "owner": {
+        "name": "Klaus K.",
+        "verified": true,
+        "memberSince": 2021
+      },
+      "engine": {
+        "type": "V8 Twin-Turbo Flat-Plane",
+        "volume": 4.0,
+        "powerHp": 730,
+        "fuel": "Petrol"
+      },
+      "specifications": {
+        "transmission": "7-speed Dual-Clutch",
+        "drivetrain": "RWD",
+        "weightKg": 1540,
+        "topSpeedKmh": 325
+      },
+      "features": [
+        "Carbon ceramic brakes",
+        "Manually adjustable front splitter",
+        "Flat-plane crank V8"
+      ],
+      "tags": [
+        "supercar",
+        "modern",
+        "track"
+      ],
+      "isModified": false,
+      "isFeatured": false,
+      "isAvailable": true,
+      "mileageKm": 5800,
+      "rating": 4.8,
+      "specialFeature": "Record-setting Nürburgring Nordschleife hot lap"
+    },
+    {
+      "id": 17,
+      "title": "Dodge Charger R/T Classic",
+      "brand": "Dodge",
+      "model": "Charger R/T",
+      "year": 1969,
+      "price": 135000,
+      "currency": "USD",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Dodge_Charger_RT_440_1969.jpg/1280px-Dodge_Charger_RT_440_1969.jpg",
+      "location": "Los Angeles, USA",
+      "owner": {
+        "name": "Dominic T.",
+        "verified": false,
+        "memberSince": 2013
+      },
+      "engine": {
+        "type": "V8 Hemi",
+        "volume": 7.2,
+        "powerHp": 375,
+        "fuel": "Petrol"
+      },
+      "specifications": {
+        "transmission": "3-speed Automatic",
+        "drivetrain": "RWD",
+        "weightKg": 1640,
+        "topSpeedKmh": 215
+      },
+      "features": [
+        "Hideaway headlights",
+        "Vinyl roof lining",
+        "Flowmaster exhausts"
+      ],
+      "tags": [
+        "classic",
+        "muscle",
+        "modified"
+      ],
+      "isModified": true,
+      "isFeatured": false,
+      "isAvailable": true,
+      "mileageKm": 124000,
+      "rating": 4.7,
+      "specialFeature": "Classic 440 Magnum V8 rebuild"
+    },
+    {
+      "id": 18,
+      "title": "Lamborghini Aventador SVJ",
+      "brand": "Lamborghini",
+      "model": "Aventador SVJ",
+      "year": 2019,
+      "price": 550000,
+      "currency": "USD",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Lamborghini_Aventador_SVJ_IMG_1537.jpg/1280px-Lamborghini_Aventador_SVJ_IMG_1537.jpg",
+      "location": "Geneva, Switzerland",
+      "owner": {
+        "name": "Jean P.",
+        "verified": true,
+        "memberSince": 2016
+      },
+      "engine": {
+        "type": "V12",
+        "volume": 6.5,
+        "powerHp": 770,
+        "fuel": "Petrol"
+      },
+      "specifications": {
+        "transmission": "7-speed ISR",
+        "drivetrain": "AWD",
+        "weightKg": 1525,
+        "topSpeedKmh": 352
+      },
+      "features": [
+        "ALA 2.0 Active Aerodynamics",
+        "Rear-wheel steering",
+        "Nireo forged wheels"
+      ],
+      "tags": [
+        "supercar",
+        "modern",
+        "collector"
+      ],
+      "isModified": false,
+      "isFeatured": true,
+      "isAvailable": true,
+      "mileageKm": 8200,
+      "rating": 4.9,
+      "specialFeature": "Limited production of 900 SVJ Coupes"
+    },
+    {
+      "id": 19,
+      "title": "Range Rover SV Autobiography",
+      "brand": "Land Rover",
+      "model": "Range Rover SV",
+      "year": 2021,
+      "price": 185000,
+      "currency": "USD",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/2018_Land_Rover_Range_Rover_Autobiography_SDV8_Automatic_4.4_Front.jpg/1280px-2018_Land_Rover_Range_Rover_Autobiography_SDV8_Automatic_4.4_Front.jpg",
+      "location": "Zurich, Switzerland",
+      "owner": {
+        "name": "Heinrich L.",
+        "verified": true,
+        "memberSince": 2019
+      },
+      "engine": {
+        "type": "V8 Supercharged",
+        "volume": 5.0,
+        "powerHp": 557,
+        "fuel": "Petrol"
+      },
+      "specifications": {
+        "transmission": "8-speed Automatic",
+        "drivetrain": "AWD",
+        "weightKg": 2510,
+        "topSpeedKmh": 250
+      },
+      "features": [
+        "Executive class rear seating",
+        "Pimento Red interior trim",
+        "Pixel-laser LED headlights"
+      ],
+      "tags": [
+        "luxury",
+        "SUV",
+        "modern"
+      ],
+      "isModified": false,
+      "isFeatured": false,
+      "isAvailable": true,
+      "mileageKm": 34000,
+      "rating": 4.7,
+      "specialFeature": "Flagship Special Vehicle Operations long wheelbase model"
+    },
+    {
+      "id": 20,
+      "title": "Subaru Impreza 22B STi",
+      "brand": "Subaru",
+      "model": "Impreza 22B",
+      "year": 1998,
+      "price": 275000,
+      "currency": "USD",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/1998_Subaru_Impreza_22B-STI_Version_No._189.jpg/1280px-1998_Subaru_Impreza_22B-STI_Version_No._189.jpg",
+      "location": "Edinburgh, Scotland",
+      "owner": {
+        "name": "Colin M.",
+        "verified": true,
+        "memberSince": 2012
+      },
+      "engine": {
+        "type": "Boxer-4 Turbo",
+        "volume": 2.2,
+        "powerHp": 280,
+        "fuel": "Petrol"
+      },
+      "specifications": {
+        "transmission": "5-speed Manual",
+        "drivetrain": "AWD",
+        "weightKg": 1270,
+        "topSpeedKmh": 250
+      },
+      "features": [
+        "Widebody fenders",
+        "BBS gold forged wheels",
+        "Bilstein suspension"
+      ],
+      "tags": [
+        "JDM",
+        "classic",
+        "rally"
+      ],
+      "isModified": false,
+      "isFeatured": true,
+      "isAvailable": true,
+      "mileageKm": 29800,
+      "rating": 4.9,
+      "specialFeature": "1 of only 400 limited units built for Subaru's 40th Anniversary"
+    },
+    {
+      "id": 21,
+      "title": "Singer 911 DLS",
+      "brand": "Porsche",
+      "model": "911 DLS by Singer",
+      "year": 2021,
+      "price": 2200000,
+      "currency": "USD",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/2018_Porsche_911_reimagined_by_Singer_DLS.jpg/1280px-2018_Porsche_911_reimagined_by_Singer_DLS.jpg",
+      "location": "Los Angeles, USA",
+      "owner": {
+        "name": "Rob D.",
+        "verified": true,
+        "memberSince": 2011
+      },
+      "engine": {
+        "type": "Boxer-6 Air-Cooled",
+        "volume": 4.0,
+        "powerHp": 500,
+        "fuel": "Petrol"
+      },
+      "specifications": {
+        "transmission": "6-speed Manual",
+        "drivetrain": "RWD",
+        "weightKg": 990,
+        "topSpeedKmh": 310
+      },
+      "features": [
+        "Carbon-fiber body panels",
+        "9000 RPM redline",
+        "Bespoke magnesium wheels"
+      ],
+      "tags": [
+        "classic",
+        "modified",
+        "collector"
+      ],
+      "isModified": true,
+      "isFeatured": true,
+      "isAvailable": true,
+      "mileageKm": 1200,
+      "rating": 5.0,
+      "specialFeature": "Dynamics and Lightweight Study custom restoration"
+    }
+  ]
+}

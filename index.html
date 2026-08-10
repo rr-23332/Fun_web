@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AutoHub — Discover, Compare, and Manage Premium Vehicles</title>
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Style Sheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dark-theme">
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+  <!-- NAVIGATION HEADER -->
+  <header class="app-header">
+    <div class="header-container">
+      <a href="#" class="logo-link" id="logo-btn">
+        <div class="logo">
+          <i class="fa-solid fa-car-rear logo-icon"></i>
+          <span>Auto<span class="accent-text">Hub</span></span>
+        </div>
+      </a>
+
+      <!-- Desktop/Tablet Nav Navigation -->
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><button class="nav-btn active" data-view="marketplace"><i class="fa-solid fa-shop"></i> Marketplace</button></li>
+          <li><button class="nav-btn" data-view="dashboard"><i class="fa-solid fa-chart-line"></i> Dashboard</button></li>
+          <li><button class="nav-btn" data-view="favorites"><i class="fa-solid fa-heart"></i> Favorites</button></li>
+          <li><button class="nav-btn" data-view="compare" id="nav-compare-btn"><i class="fa-solid fa-code-compare"></i> Compare <span class="compare-badge" id="compare-count-badge">0</span></button></li>
+        </ul>
+      </nav>
+
+      <!-- Right Header Controls -->
+      <div class="header-controls">
+        <button id="add-car-header-btn" class="btn btn-primary add-car-btn" aria-label="Add a vehicle">
+          <i class="fa-solid fa-plus"></i> <span class="btn-text">Add Vehicle</span>
+        </button>
+        <button id="theme-toggle-btn" class="theme-toggle" aria-label="Toggle light and dark mode">
+          <i class="fa-solid fa-sun icon-light"></i>
+          <i class="fa-solid fa-moon icon-dark"></i>
+        </button>
+        <!-- Mobile Menu Hamburger -->
+        <button id="mobile-hamburger-btn" class="hamburger-menu" aria-label="Open mobile navigation menu" aria-expanded="false">
+          <i class="fa-solid fa-bars menu-open-icon"></i>
+          <i class="fa-solid fa-xmark menu-close-icon" style="display: none;"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Nav Overlay -->
+    <nav class="mobile-nav" id="mobile-nav-overlay" aria-label="Mobile Navigation">
+      <ul class="mobile-nav-links">
+        <li><button class="mobile-nav-btn active" data-view="marketplace"><i class="fa-solid fa-shop"></i> Marketplace</button></li>
+        <li><button class="mobile-nav-btn" data-view="dashboard"><i class="fa-solid fa-chart-line"></i> Dashboard</button></li>
+        <li><button class="mobile-nav-btn" data-view="favorites"><i class="fa-solid fa-heart"></i> Favorites</button></li>
+        <li><button class="mobile-nav-btn" data-view="compare"><i class="fa-solid fa-code-compare"></i> Compare <span class="compare-badge" id="compare-count-badge-mobile">0</span></button></li>
+        <li><button class="mobile-nav-btn mobile-add-btn" id="mobile-add-car-btn"><i class="fa-solid fa-plus"></i> Add Vehicle</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero-section" id="hero-banner">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">Find the car that fits your story.</h1>
+      <p class="hero-subtitle">Explore, compare, and manage a curated collection of exceptional vehicles. Designed for drivers and connoisseurs.</p>
+      <div class="hero-actions">
+        <button class="btn btn-primary hero-cta-btn" id="hero-browse-btn">Browse Catalog</button>
+        <button class="btn btn-outline hero-sec-btn" id="hero-stats-btn">View Stats</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN APP CONTAINER -->
+  <main class="app-main">
+
+    <!-- VIEW: MARKETPLACE / FAVORITES (SHARED GRID WITH FILTER SIDEBAR) -->
+    <div id="view-marketplace-favorites" class="app-view active">
+      <div class="marketplace-layout">
+
+        <!-- SIDEBAR: FILTER / ADVANCED SEARCH -->
+        <aside class="sidebar-filters" id="sidebar-filters-container">
+          <div class="sidebar-header">
+            <h3><i class="fa-solid fa-sliders"></i> Filters</h3>
+            <button class="btn btn-link reset-filters-btn" id="reset-filters-sidebar-btn"><i class="fa-solid fa-rotate"></i> Reset</button>
+            <button class="btn-close-sidebar" id="close-sidebar-btn" aria-label="Close filters"><i class="fa-solid fa-xmark"></i></button>
+          </div>
+
+          <div class="sidebar-content">
+            <!-- Search field in sidebar for convenience -->
+            <div class="filter-group">
+              <label for="search-input"><i class="fa-solid fa-magnifying-glass"></i> Search</label>
+              <div class="search-input-wrapper">
+                <input type="text" id="search-input" placeholder="Brand, model, tag, owner...">
+                <button class="clear-search-btn" id="clear-search-btn" style="display:none;"><i class="fa-solid fa-circle-xmark"></i></button>
+              </div>
+            </div>
+
+            <!-- Brand Filter -->
+            <div class="filter-group">
+              <label for="filter-brand">Brand</label>
+              <select id="filter-brand" class="filter-select">
+                <option value="all">All Brands</option>
+              </select>
+            </div>
+
+            <!-- Engine Type -->
+            <div class="filter-group">
+              <label for="filter-engine">Engine Type</label>
+              <select id="filter-engine" class="filter-select">
+                <option value="all">All Engines</option>
+              </select>
+            </div>
+
+            <!-- Fuel Type -->
+            <div class="filter-group">
+              <label for="filter-fuel">Fuel Type</label>
+              <select id="filter-fuel" class="filter-select">
+                <option value="all">All Fuel Types</option>
+              </select>
+            </div>
+
+            <!-- Year Range -->
+            <div class="filter-group">
+              <label>Year Range</label>
+              <div class="range-inputs">
+                <input type="number" id="filter-year-min" placeholder="Min" min="1900">
+                <input type="number" id="filter-year-max" placeholder="Max" min="1900">
+              </div>
+            </div>
+
+            <!-- Price Range -->
+            <div class="filter-group">
+              <label>Price Range ($)</label>
+              <div class="range-inputs">
+                <input type="number" id="filter-price-min" placeholder="Min" min="0">
+                <input type="number" id="filter-price-max" placeholder="Max" min="0">
+              </div>
+            </div>
+
+            <!-- Horsepower Range -->
+            <div class="filter-group">
+              <label>Horsepower</label>
+              <div class="range-inputs">
+                <input type="number" id="filter-hp-min" placeholder="Min" min="0">
+                <input type="number" id="filter-hp-max" placeholder="Max" min="0">
+              </div>
+            </div>
+
+            <!-- Modified State -->
+            <div class="filter-group">
+              <label for="filter-modified">Build Type</label>
+              <select id="filter-modified" class="filter-select">
+                <option value="all">All Types</option>
+                <option value="original">Original Factory</option>
+                <option value="modified">Modified / Custom</option>
+              </select>
+            </div>
+
+            <!-- Availability -->
+            <div class="filter-group">
+              <label for="filter-availability">Availability</label>
+              <select id="filter-availability" class="filter-select">
+                <option value="all">All Statuses</option>
+                <option value="available">Available</option>
+                <option value="sold">Sold</option>
+              </select>
+            </div>
+
+            <!-- Tags Filter -->
+            <div class="filter-group">
+              <label>Tags</label>
+              <div class="tags-checkbox-container" id="filter-tags-container">
+                <!-- Dynamically generated tags list with counts -->
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <!-- CATALOG PANEL -->
+        <section class="catalog-panel">
+
+          <!-- View Title & Top Controls -->
+          <div class="catalog-header">
+            <div class="catalog-title-wrapper">
+              <h2 id="marketplace-view-title">Vehicle Marketplace</h2>
+              <p class="results-counter" id="results-count">Loading vehicles...</p>
+            </div>
+
+            <!-- Controls row (Sort, View-toggles, Open-filters-on-mobile) -->
+            <div class="catalog-controls">
+              <!-- Mobile Filters Button -->
+              <button class="btn btn-outline mobile-filters-trigger-btn" id="mobile-filter-toggle">
+                <i class="fa-solid fa-sliders"></i> Filters
+              </button>
+
+              <!-- Sorting Dropdown -->
+              <div class="sort-control">
+                <label for="catalog-sort" class="sr-only">Sort by</label>
+                <select id="catalog-sort" class="sort-select">
+                  <option value="default">Default Sort</option>
+                  <option value="price-asc">Price: Low → High</option>
+                  <option value="price-desc">Price: High → Low</option>
+                  <option value="year-asc">Year: Oldest → Newest</option>
+                  <option value="year-desc">Year: Newest → Oldest</option>
+                  <option value="hp-asc">Horsepower: Low → High</option>
+                  <option value="hp-desc">Horsepower: High → Low</option>
+                  <option value="rating-desc">Rating: Highest → Lowest</option>
+                  <option value="name-asc">Name: A → Z</option>
+                  <option value="name-desc">Name: Z → A</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- CAR CARDS GRID -->
+          <div class="cars-grid" id="cars-grid-container">
+            <!-- Dynamically populated car cards go here -->
+          </div>
+
+          <!-- EMPTY STATE CONTAINER -->
+          <div class="empty-state" id="empty-state-container" style="display: none;">
+            <i class="fa-solid fa-car-tunnel empty-state-icon"></i>
+            <h3>No Vehicles Found</h3>
+            <p>Try resetting filters or typing a different search query to see other premium offerings.</p>
+            <button class="btn btn-primary" id="empty-state-reset-btn">Reset Filters</button>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- VIEW: STATISTICS DASHBOARD -->
+    <section id="view-dashboard" class="app-view">
+      <div class="dashboard-header-block">
+        <h2>SaaS Analytics Dashboard</h2>
+        <p>Real-time telemetry and metrics aggregated from the dynamic car dataset.</p>
+      </div>
+
+      <!-- General Statistics Grid -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon-wrapper"><i class="fa-solid fa-car"></i></div>
+          <div class="stat-values">
+            <span class="stat-label">Total Vehicles</span>
+            <h3 id="stat-total-cars">0</h3>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon-wrapper"><i class="fa-solid fa-tags"></i></div>
+          <div class="stat-values">
+            <span class="stat-label">Average Price</span>
+            <h3 id="stat-avg-price">$0</h3>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon-wrapper"><i class="fa-solid fa-gauge-high"></i></div>
+          <div class="stat-values">
+            <span class="stat-label">Average Mileage</span>
+            <h3 id="stat-avg-mileage">0 km</h3>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon-wrapper"><i class="fa-solid fa-wrench"></i></div>
+          <div class="stat-values">
+            <span class="stat-label">Modified Vehicles</span>
+            <h3 id="stat-modified-cars">0</h3>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon-wrapper"><i class="fa-solid fa-star"></i></div>
+          <div class="stat-values">
+            <span class="stat-label">Featured Vehicles</span>
+            <h3 id="stat-featured-cars">0</h3>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon-wrapper"><i class="fa-solid fa-certificate"></i></div>
+          <div class="stat-values">
+            <span class="stat-label">Top Brand</span>
+            <h3 id="stat-top-brand">-</h3>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon-wrapper"><i class="fa-solid fa-fire-flame-simple"></i></div>
+          <div class="stat-values">
+            <span class="stat-label">Top Engine Type</span>
+            <h3 id="stat-top-engine">-</h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- Advanced Analytics Charts / Breakdown Rows -->
+      <div class="analytics-row">
+        <!-- Decade Breakdown Card -->
+        <div class="analytics-card">
+          <div class="card-header">
+            <h4><i class="fa-solid fa-hourglass-half"></i> Vehicles by Decade</h4>
+          </div>
+          <div class="card-body">
+            <div class="bar-chart-container" id="decade-chart-container">
+              <!-- Dynamically rendered bar charts -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Brand Distribution Card -->
+        <div class="analytics-card">
+          <div class="card-header">
+            <h4><i class="fa-solid fa-cubes"></i> Inventory Distribution by Brand</h4>
+          </div>
+          <div class="card-body">
+            <div class="brand-list-container" id="brand-distribution-container">
+              <!-- Dynamically listed inventory segments -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Database Actions Row -->
+      <div class="database-admin-card">
+        <h4><i class="fa-solid fa-database"></i> Database Administration</h4>
+        <p>Export state as JSON, import raw JSON catalog configurations, or reset the localized database back to factory settings.</p>
+        <div class="admin-buttons">
+          <button class="btn btn-outline" id="btn-export-json"><i class="fa-solid fa-download"></i> Export Database</button>
+
+          <label class="btn btn-outline file-input-label">
+            <i class="fa-solid fa-upload"></i> Import Database
+            <input type="file" id="file-import-json" accept=".json" style="display: none;">
+          </label>
+
+          <button class="btn btn-danger" id="btn-reset-db"><i class="fa-solid fa-triangle-exclamation"></i> Reset Database</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW: VEHICLE COMPARISON -->
+    <section id="view-compare" class="app-view">
+      <div class="compare-header-block">
+        <div class="title-details">
+          <h2>Vehicle Comparison Matrix</h2>
+          <p id="compare-selection-status">0 / 3 selected</p>
+        </div>
+        <button class="btn btn-outline" id="clear-compare-matrix-btn"><i class="fa-solid fa-trash-can"></i> Clear Comparison</button>
+      </div>
+
+      <!-- Compare Grid Table -->
+      <div class="comparison-matrix-wrapper" id="comparison-matrix-wrapper">
+        <!-- Dynamically rendered comparison tables -->
+      </div>
+
+      <!-- Empty State for Comparison -->
+      <div class="empty-state" id="compare-empty-state" style="display: none;">
+        <i class="fa-solid fa-code-compare empty-state-icon"></i>
+        <h3>No Vehicles Selected for Comparison</h3>
+        <p>Go to the Marketplace, choose up to three vehicles, and click their "Compare" buttons to see detailed specification differences side-by-side.</p>
+        <button class="btn btn-primary" id="compare-back-to-market">Go to Marketplace</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- MODALS SYSTEM -->
+
+  <!-- MODAL: VEHICLE DETAIL VIEW -->
+  <div class="modal-overlay" id="detail-modal" role="dialog" aria-modal="true" aria-labelledby="detail-title" style="display: none;">
+    <div class="modal-container modal-large">
+      <button class="modal-close" id="close-detail-modal" aria-label="Close modal"><i class="fa-solid fa-xmark"></i></button>
+
+      <div class="modal-content-wrapper" id="detail-modal-body">
+        <!-- Dynamically injected detail HTML -->
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: ADD / EDIT CAR -->
+  <div class="modal-overlay" id="crud-modal" role="dialog" aria-modal="true" aria-labelledby="crud-modal-title" style="display: none;">
+    <div class="modal-container modal-medium">
+      <button class="modal-close" id="close-crud-modal" aria-label="Close form modal"><i class="fa-solid fa-xmark"></i></button>
+
+      <h3 id="crud-modal-title" class="modal-header-title">Add New Vehicle</h3>
+
+      <form id="car-crud-form" novalidate>
+        <!-- Hidden input to store car ID during Edit mode -->
+        <input type="hidden" id="crud-car-id" value="">
+
+        <div class="form-scrollable-area">
+
+          <!-- Basic Section -->
+          <fieldset class="form-section">
+            <legend>Basic Information</legend>
+
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label for="crud-title">Title <span class="required">*</span></label>
+                <input type="text" id="crud-title" required placeholder="e.g. BMW M3 Coupe">
+                <span class="error-message" id="error-title"></span>
+              </div>
+              <div class="form-group">
+                <label for="crud-brand">Brand <span class="required">*</span></label>
+                <input type="text" id="crud-brand" required placeholder="e.g. BMW">
+                <span class="error-message" id="error-brand"></span>
+              </div>
+            </div>
+
+            <div class="form-grid-3">
+              <div class="form-group">
+                <label for="crud-model">Model <span class="required">*</span></label>
+                <input type="text" id="crud-model" required placeholder="e.g. M3 E30">
+                <span class="error-message" id="error-model"></span>
+              </div>
+              <div class="form-group">
+                <label for="crud-year">Year <span class="required">*</span></label>
+                <input type="number" id="crud-year" required min="1900" max="2100" placeholder="e.g. 1988">
+                <span class="error-message" id="error-year"></span>
+              </div>
+              <div class="form-group">
+                <label for="crud-price">Price <span class="required">*</span></label>
+                <input type="number" id="crud-price" required min="0" placeholder="e.g. 125000">
+                <span class="error-message" id="error-price"></span>
+              </div>
+            </div>
+
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label for="crud-currency">Currency <span class="required">*</span></label>
+                <select id="crud-currency" required>
+                  <option value="USD">USD ($)</option>
+                  <option value="EUR">EUR (€)</option>
+                  <option value="GBP">GBP (£)</option>
+                </select>
+                <span class="error-message" id="error-currency"></span>
+              </div>
+              <div class="form-group">
+                <label for="crud-image">Image URL <span class="required">*</span></label>
+                <input type="url" id="crud-image" required placeholder="https://...">
+                <span class="error-message" id="error-image"></span>
+              </div>
+            </div>
+
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label for="crud-location">Location <span class="required">*</span></label>
+                <input type="text" id="crud-location" required placeholder="e.g. Munich, Germany">
+                <span class="error-message" id="error-location"></span>
+              </div>
+              <div class="form-group">
+                <label for="crud-mileage">Mileage (km)</label>
+                <input type="number" id="crud-mileage" min="0" placeholder="e.g. 112000 (Optional)">
+                <span class="error-message" id="error-mileage"></span>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- Owner Specifications Section -->
+          <fieldset class="form-section">
+            <legend>Owner & Telemetry Details</legend>
+            <div class="form-grid-3">
+              <div class="form-group">
+                <label for="crud-owner-name">Owner Name <span class="required">*</span></label>
+                <input type="text" id="crud-owner-name" required placeholder="e.g. Hans M.">
+                <span class="error-message" id="error-owner-name"></span>
+              </div>
+              <div class="form-group checkbox-form-group">
+                <label for="crud-owner-verified" class="checkbox-label">
+                  <input type="checkbox" id="crud-owner-verified"> Verified Owner
+                </label>
+              </div>
+              <div class="form-group">
+                <label for="crud-rating">Rating (0 - 5)</label>
+                <input type="number" id="crud-rating" min="0" max="5" step="0.1" placeholder="e.g. 4.8">
+                <span class="error-message" id="error-rating"></span>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- Engine Specifications Section -->
+          <fieldset class="form-section">
+            <legend>Engine Specifications</legend>
+            <div class="form-grid-4">
+              <div class="form-group">
+                <label for="crud-engine-type">Engine Type <span class="required">*</span></label>
+                <input type="text" id="crud-engine-type" required placeholder="e.g. Inline-4">
+                <span class="error-message" id="error-engine-type"></span>
+              </div>
+              <div class="form-group">
+                <label for="crud-engine-volume">Volume (L) <span class="required">*</span></label>
+                <input type="number" id="crud-engine-volume" required min="0" step="0.1" placeholder="e.g. 2.3">
+                <span class="error-message" id="error-engine-volume"></span>
+              </div>
+              <div class="form-group">
+                <label for="crud-power">Horsepower (HP) <span class="required">*</span></label>
+                <input type="number" id="crud-power" required min="0" placeholder="e.g. 200">
+                <span class="error-message" id="error-power"></span>
+              </div>
+              <div class="form-group">
+                <label for="crud-fuel">Fuel <span class="required">*</span></label>
+                <select id="crud-fuel" required>
+                  <option value="Petrol">Petrol</option>
+                  <option value="Diesel">Diesel</option>
+                  <option value="Hybrid">Hybrid</option>
+                  <option value="Electric">Electric</option>
+                </select>
+                <span class="error-message" id="error-fuel"></span>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- Mechanics/Specs Section -->
+          <fieldset class="form-section">
+            <legend>Mechanics & Performance</legend>
+            <div class="form-grid-4">
+              <div class="form-group">
+                <label for="crud-transmission">Transmission <span class="required">*</span></label>
+                <input type="text" id="crud-transmission" required placeholder="e.g. 5-speed Manual">
+                <span class="error-message" id="error-transmission"></span>
+              </div>
+              <div class="form-group">
+                <label for="crud-drivetrain">Drivetrain <span class="required">*</span></label>
+                <input type="text" id="crud-drivetrain" required placeholder="e.g. RWD">
+                <span class="error-message" id="error-drivetrain"></span>
+              </div>
+              <div class="form-group">
+                <label for="crud-weight">Weight (kg) <span class="required">*</span></label>
+                <input type="number" id="crud-weight" required min="0" placeholder="e.g. 1200">
+                <span class="error-message" id="error-weight"></span>
+              </div>
+              <div class="form-group">
+                <label for="crud-topspeed">Top Speed (km/h) <span class="required">*</span></label>
+                <input type="number" id="crud-topspeed" required min="0" placeholder="e.g. 235">
+                <span class="error-message" id="error-topspeed"></span>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- Features, Tags, Badges -->
+          <fieldset class="form-section">
+            <legend>Features, Tags & Extra Properties</legend>
+
+            <div class="form-group">
+              <label for="crud-special-feature">Special Feature / Production Note</label>
+              <input type="text" id="crud-special-feature" placeholder="e.g. DTM homologation special (Optional)">
+              <span class="error-message" id="error-special-feature"></span>
+            </div>
+
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label for="crud-features">Features (Comma-separated)</label>
+                <input type="text" id="crud-features" placeholder="e.g. BBS Wheels, Leather seating, Sport wing">
+                <span class="error-message" id="error-features"></span>
+              </div>
+              <div class="form-group">
+                <label for="crud-tags">Tags (Comma-separated)</label>
+                <input type="text" id="crud-tags" placeholder="e.g. classic, sports, JDM">
+                <span class="error-message" id="error-tags"></span>
+              </div>
+            </div>
+
+            <div class="form-checkbox-row">
+              <label class="checkbox-label">
+                <input type="checkbox" id="crud-is-modified"> Modified Car
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" id="crud-is-featured"> Featured
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" id="crud-is-available" checked> Available for Sale
+              </label>
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="form-actions-wrapper">
+          <button type="button" class="btn btn-outline" id="btn-cancel-crud">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="btn-submit-crud">Save Vehicle</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- CONFIRMATION MODAL (DELETE CAR, RESET DB, ETC.) -->
+  <div class="modal-overlay" id="confirm-modal" role="dialog" aria-modal="true" aria-labelledby="confirm-modal-title" style="display: none; z-index: 1100;">
+    <div class="modal-container modal-small">
+      <h3 id="confirm-modal-title" class="confirm-title">Are you absolutely sure?</h3>
+      <p id="confirm-modal-description" class="confirm-desc">This action cannot be undone. Please review to confirm.</p>
+      <div class="confirm-actions">
+        <button class="btn btn-outline" id="btn-confirm-cancel">Cancel</button>
+        <button class="btn btn-danger" id="btn-confirm-accept">Confirm Action</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="app-footer">
+    <div class="footer-container">
+      <div class="footer-logo-block">
+        <div class="logo">
+          <i class="fa-solid fa-car-rear logo-icon"></i>
+          <span>Auto<span class="accent-text">Hub</span></span>
+        </div>
+        <p>Premium SaaS vehicle indexing platform and responsive discovery matrix. Driven by live structured JSON streams.</p>
+      </div>
+      <div class="footer-info">
+        <p>&copy; 2025 AutoHub Inc. Built with modern, framework-free client-side architecture.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Github"><i class="fa-brands fa-github"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- App Script Entry point -->
+  <script src="js/app.js" defer></script>
+</body>
+</html>
