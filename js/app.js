@@ -522,7 +522,24 @@ function renderCars() {
 
   if (filteredCars.length === 0) {
     gridContainer.style.display = "none";
-    if (emptyContainer) emptyContainer.style.display = "block";
+    if (emptyContainer) {
+      emptyContainer.style.display = "block";
+      if (state.currentView === "favorites") {
+        emptyContainer.innerHTML = `
+          <i class="fa-solid fa-heart-crack empty-state-icon" style="color: var(--color-danger);"></i>
+          <h3>No Saved Vehicles Yet</h3>
+          <p>Save vehicles you want to revisit later from the Marketplace catalog.</p>
+          <button class="btn btn-primary" onclick="navigateToView('marketplace')"><i class="fa-solid fa-shop"></i> Explore Marketplace</button>
+        `;
+      } else {
+        emptyContainer.innerHTML = `
+          <i class="fa-solid fa-car-tunnel empty-state-icon"></i>
+          <h3>No Vehicles Found</h3>
+          <p>Try resetting filters or typing a different search query to see other premium offerings.</p>
+          <button class="btn btn-primary" id="empty-state-reset-btn" onclick="resetAllFilters()"><i class="fa-solid fa-rotate"></i> Reset Filters</button>
+        `;
+      }
+    }
     if (resultsCounter) resultsCounter.textContent = "0 vehicles found";
   } else {
     if (emptyContainer) emptyContainer.style.display = "none";
@@ -694,9 +711,17 @@ function renderComparisonMatrix() {
 
   if (!container || !emptyState) return;
 
-  if (state.compare.length === 0) {
+  if (state.compare.length < 2) {
     container.style.display = "none";
     emptyState.style.display = "block";
+
+    const countText = state.compare.length === 1 ? "1 vehicle selected" : "No vehicles selected";
+    emptyState.innerHTML = `
+      <i class="fa-solid fa-code-compare empty-state-icon"></i>
+      <h3>Compare Vehicles (${countText})</h3>
+      <p>Please select at least 2 vehicles from the Marketplace to begin parallel specification comparison (maximum 3).</p>
+      <button class="btn btn-primary" onclick="navigateToView('marketplace')"><i class="fa-solid fa-shop"></i> Go to Marketplace</button>
+    `;
     return;
   }
 
@@ -716,9 +741,6 @@ function renderComparisonMatrix() {
 
   const validSpeeds = selectedCars.map(c => c.specifications?.topSpeedKmh).filter(s => typeof s === 'number');
   const maxSpeed = validSpeeds.length ? Math.max(...validSpeeds) : null;
-
-  const validWeights = selectedCars.map(c => c.specifications?.weightKg).filter(w => typeof w === 'number');
-  const minWeight = validWeights.length ? Math.min(...validWeights) : null;
 
   let tableHTML = `<table class="comparison-table">`;
 
@@ -795,10 +817,8 @@ function renderComparisonMatrix() {
 
   tableHTML += `<tr><th>Curb Weight</th>`;
   selectedCars.forEach(car => {
-    const isLightest = car.specifications?.weightKg === minWeight && selectedCars.length > 1;
-    const cl = isLightest ? 'class="highlighted-metric" title="Lightest Bodyweight"' : '';
-    const weightVal = car.specifications?.weightKg ? `${Number(car.specifications.weightKg).toLocaleString()} kg` : "N/A";
-    tableHTML += `<td ${cl}>${weightVal} ${isLightest ? '<i class="fa-solid fa-feather"></i>' : ''}</td>`;
+    const weightVal = car.specifications?.weightKg ? `${Number(car.specifications.weightKg).toLocaleString()} kg` : "Not specified";
+    tableHTML += `<td>${weightVal}</td>`;
   });
   tableHTML += `</tr>`;
 
