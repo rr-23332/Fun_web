@@ -4,6 +4,22 @@
  * ==========================================================================
  */
 
+// --- SECURE HTML ESCAPE SANITIZER ---
+function escapeHTML(str) {
+  if (str === undefined || str === null) return "";
+  const s = String(str);
+  return s.replace(/[&<>"']/g, function(match) {
+    switch (match) {
+      case '&': return '&amp;';
+      case '<': return '&lt;';
+      case '>': return '&gt;';
+      case '"': return '&quot;';
+      case "'": return '&#39;';
+      default: return match;
+    }
+  });
+}
+
 // --- CENTRALIZED STATE ENGINE ---
 const state = {
   cars: [],            // List of all loaded car records
@@ -58,8 +74,18 @@ async function fetchInitialDataset() {
 
   try {
     const storedCars = localStorage.getItem("autohub_cars");
+    let parsedCars = null;
     if (storedCars) {
-      state.cars = JSON.parse(storedCars);
+      try {
+        parsedCars = JSON.parse(storedCars);
+      } catch (e) {
+        console.warn("Malformed LocalStorage autohub_cars data cleared:", e);
+        localStorage.removeItem("autohub_cars");
+      }
+    }
+
+    if (parsedCars && Array.isArray(parsedCars)) {
+      state.cars = parsedCars;
     } else {
       const response = await fetch("./data/cars.json");
       if (!response.ok) {
@@ -92,13 +118,24 @@ function saveCarsToLocalStorage() {
 
 function loadFavoritesFromLocalStorage() {
   const favs = localStorage.getItem("autohub_favorites");
-  state.favorites = favs ? JSON.parse(favs) : [];
+  if (favs) {
+    try {
+      state.favorites = JSON.parse(favs);
+    } catch (e) {
+      console.warn("Malformed favorites localStorage data cleared:", e);
+      state.favorites = [];
+      localStorage.removeItem("autohub_favorites");
+    }
+  } else {
+    state.favorites = [];
+  }
 }
 
 function saveFavoritesToLocalStorage() {
   localStorage.setItem("autohub_favorites", JSON.stringify(state.favorites));
 }
 
+// Persist the theme cleanly
 function loadThemeFromLocalStorage() {
   const savedTheme = localStorage.getItem("autohub_theme");
   state.theme = savedTheme ? savedTheme : "dark";
@@ -111,7 +148,17 @@ function saveThemeToLocalStorage() {
 
 function loadCompareStateFromSession() {
   const compareStr = sessionStorage.getItem("autohub_compare");
-  state.compare = compareStr ? JSON.parse(compareStr) : [];
+  if (compareStr) {
+    try {
+      state.compare = JSON.parse(compareStr);
+    } catch (e) {
+      console.warn("Malformed compare sessionStorage data cleared:", e);
+      state.compare = [];
+      sessionStorage.removeItem("autohub_compare");
+    }
+  } else {
+    state.compare = [];
+  }
 }
 
 function saveCompareStateToSession() {
@@ -217,7 +264,8 @@ function populateDynamicFilters() {
     brandSelect.innerHTML = `<option value="all">All Brands (${state.cars.length})</option>`;
     brands.forEach(b => {
       const count = state.cars.filter(c => c.brand === b).length;
-      brandSelect.innerHTML += `<option value="${b}" ${b === currentVal ? "selected" : ""}>${b} (${count})</option>`;
+      const eb = escapeHTML(b);
+      brandSelect.innerHTML += `<option value="${eb}" ${b === currentVal ? "selected" : ""}>${eb} (${count})</option>`;
     });
   }
 
@@ -228,7 +276,8 @@ function populateDynamicFilters() {
     engineSelect.innerHTML = `<option value="all">All Engines</option>`;
     engines.forEach(eng => {
       const count = state.cars.filter(c => c.engine?.type === eng).length;
-      engineSelect.innerHTML += `<option value="${eng}" ${eng === currentVal ? "selected" : ""}>${eng} (${count})</option>`;
+      const eeng = escapeHTML(eng);
+      engineSelect.innerHTML += `<option value="${eeng}" ${eng === currentVal ? "selected" : ""}>${eeng} (${count})</option>`;
     });
   }
 
@@ -239,7 +288,8 @@ function populateDynamicFilters() {
     fuelSelect.innerHTML = `<option value="all">All Fuel Types</option>`;
     fuels.forEach(fl => {
       const count = state.cars.filter(c => c.engine?.fuel === fl).length;
-      fuelSelect.innerHTML += `<option value="${fl}" ${fl === currentVal ? "selected" : ""}>${fl} (${count})</option>`;
+      const efl = escapeHTML(fl);
+      fuelSelect.innerHTML += `<option value="${efl}" ${fl === currentVal ? "selected" : ""}>${efl} (${count})</option>`;
     });
   }
 
@@ -259,11 +309,12 @@ function populateDynamicFilters() {
     Object.keys(allTags).sort().forEach(tag => {
       const count = allTags[tag];
       const isChecked = state.filters.tags.includes(tag);
+      const etag = escapeHTML(tag);
       tagsContainer.innerHTML += `
         <div class="tag-option-wrapper">
           <label class="checkbox-label">
-            <input type="checkbox" class="tag-checkbox-filter" value="${tag}" ${isChecked ? "checked" : ""}>
-            <span>${tag}</span>
+            <input type="checkbox" class="tag-checkbox-filter" value="${etag}" ${isChecked ? "checked" : ""}>
+            <span>${etag}</span>
           </label>
           <span class="tag-badge-count">${count}</span>
         </div>
@@ -297,7 +348,7 @@ function createCarCard(car) {
       : `<span class="badge badge-original"><i class="fa-solid fa-certificate"></i> Factory Stock</span>`;
   }
 
-  let priceStr = `${car.currency ?? "USD"} ${Number(car.price).toLocaleString()}`;
+  let priceStr = `${escapeHTML(car.currency ?? "USD")} ${Number(car.price).toLocaleString()}`;
   if (car.currency === "USD") priceStr = `$${Number(car.price).toLocaleString()}`;
   if (car.currency === "EUR") priceStr = `€${Number(car.price).toLocaleString()}`;
   if (car.currency === "GBP") priceStr = `£${Number(car.price).toLocaleString()}`;
@@ -308,13 +359,13 @@ function createCarCard(car) {
     ? `${Number(car.mileageKm).toLocaleString()} km`
     : "Not specified";
 
-  const engineHpStr = car.engine?.powerHp ? `${car.engine.powerHp} HP` : "N/A HP";
-  const engineTypeStr = car.engine?.type || "Standard Engine";
-  const transmissionStr = car.specifications?.transmission || "Manual/Auto";
+  const engineHpStr = car.engine?.powerHp ? `${Number(car.engine.powerHp)} HP` : "N/A HP";
+  const engineTypeStr = car.engine?.type ? escapeHTML(car.engine.type) : "Standard Engine";
+  const transmissionStr = car.specifications?.transmission ? escapeHTML(car.specifications.transmission) : "Manual/Auto";
 
   // If there's no real image, point directly to a styled HTML placeholder overlay instead of a broken thumbnail
   const imageElementHTML = fallbackedImg
-    ? `<img src="${fallbackedImg}" alt="${car.brand} ${car.model}" class="card-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    ? `<img src="${escapeHTML(fallbackedImg)}" alt="${escapeHTML(car.brand)} ${escapeHTML(car.model)}" class="card-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
        <div class="image-fallback-placeholder" style="display: none;"><i class="fa-solid fa-car-rear"></i><span>Image Unavailable</span></div>`
     : `<div class="image-fallback-placeholder" style="display: flex;"><i class="fa-solid fa-car-rear"></i><span>Image Unavailable</span></div>`;
 
@@ -331,10 +382,10 @@ function createCarCard(car) {
 
       <div class="card-body">
         <div class="card-meta-row">
-          <span class="card-brand">${car.brand}</span>
-          <span class="card-year">${car.year}</span>
+          <span class="card-brand">${escapeHTML(car.brand)}</span>
+          <span class="card-year">${Number(car.year)}</span>
         </div>
-        <h3 class="card-title">${car.title}</h3>
+        <h3 class="card-title">${escapeHTML(car.title)}</h3>
         <p class="card-price">${priceStr}</p>
 
         <div class="card-specs-grid">
@@ -358,7 +409,7 @@ function createCarCard(car) {
 
         <div class="card-location-row">
           <i class="fa-solid fa-location-dot"></i>
-          <span>${car.location ?? "Global Registry"}</span>
+          <span>${escapeHTML(car.location ?? "Global Registry")}</span>
         </div>
 
         <div class="card-actions-row">
@@ -934,7 +985,7 @@ function openCarDetailModal(id) {
   const isFav = state.favorites.includes(car.id);
   const isCompared = state.compare.includes(car.id);
 
-  let priceStr = `${car.currency ?? "USD"} ${Number(car.price).toLocaleString()}`;
+  let priceStr = `${escapeHTML(car.currency ?? "USD")} ${Number(car.price).toLocaleString()}`;
   if (car.currency === "USD") priceStr = `$${Number(car.price).toLocaleString()}`;
   if (car.currency === "EUR") priceStr = `€${Number(car.price).toLocaleString()}`;
   if (car.currency === "GBP") priceStr = `£${Number(car.price).toLocaleString()}`;
@@ -944,26 +995,26 @@ function openCarDetailModal(id) {
     ? `<span class="badge badge-modified"><i class="fa-solid fa-bolt"></i> Custom Modified</span>`
     : `<span class="badge badge-original"><i class="fa-solid fa-certificate"></i> Factory Stock</span>`;
 
-  const transmissionVal = car.specifications?.transmission ?? "Not specified";
-  const drivetrainVal = car.specifications?.drivetrain ?? "Not specified";
+  const transmissionVal = car.specifications?.transmission ? escapeHTML(car.specifications.transmission) : "Not specified";
+  const drivetrainVal = car.specifications?.drivetrain ? escapeHTML(car.specifications.drivetrain) : "Not specified";
   const weightVal = car.specifications?.weightKg ? `${Number(car.specifications.weightKg).toLocaleString()} kg` : "Not specified";
-  const speedVal = car.specifications?.topSpeedKmh ? `${car.specifications.topSpeedKmh} km/h` : "Not specified";
+  const speedVal = car.specifications?.topSpeedKmh ? `${Number(car.specifications.topSpeedKmh)} km/h` : "Not specified";
 
-  const engineTypeVal = car.engine?.type ?? "Standard Config";
-  const engineVolumeVal = car.engine?.volume ? `${car.engine.volume} L` : "N/A";
-  const enginePowerVal = car.engine?.powerHp ? `${car.engine.powerHp} HP` : "N/A";
-  const engineFuelVal = car.engine?.fuel ?? "Not specified";
+  const engineTypeVal = car.engine?.type ? escapeHTML(car.engine.type) : "Standard Config";
+  const engineVolumeVal = car.engine?.volume ? `${Number(car.engine.volume)} L` : "N/A";
+  const enginePowerVal = car.engine?.powerHp ? `${Number(car.engine.powerHp)} HP` : "N/A";
+  const engineFuelVal = car.engine?.fuel ? escapeHTML(car.engine.fuel) : "Not specified";
 
   const mileageVal = car.mileageKm !== undefined && car.mileageKm !== null
     ? `${Number(car.mileageKm).toLocaleString()} km`
     : "Not specified";
 
-  const ratingVal = car.rating ? `${car.rating} / 5` : "N/A";
+  const ratingVal = car.rating ? `${Number(car.rating)} / 5` : "N/A";
 
   let featuresHTML = "";
   if (car.features && car.features.length > 0) {
     car.features.forEach(feat => {
-      featuresHTML += `<li class="detail-feature-item"><i class="fa-solid fa-check"></i> <span>${feat}</span></li>`;
+      featuresHTML += `<li class="detail-feature-item"><i class="fa-solid fa-check"></i> <span>${escapeHTML(feat)}</span></li>`;
     });
   } else {
     featuresHTML = `<li class="detail-feature-item" style="color: var(--text-muted);">No extra accessories specified.</li>`;
@@ -972,7 +1023,7 @@ function openCarDetailModal(id) {
   let tagsHTML = "";
   if (car.tags && car.tags.length > 0) {
     car.tags.forEach(tag => {
-      tagsHTML += `<span class="detail-tag-badge">${tag}</span>`;
+      tagsHTML += `<span class="detail-tag-badge">${escapeHTML(tag)}</span>`;
     });
   }
 
@@ -985,7 +1036,7 @@ function openCarDetailModal(id) {
 
   const fallImg = car.image || "";
   const imgHTML = fallImg
-    ? `<img class="detail-img" src="${fallImg}" alt="${car.title}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    ? `<img class="detail-img" src="${escapeHTML(fallImg)}" alt="${escapeHTML(car.brand)} ${escapeHTML(car.model)}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
        <div class="image-fallback-placeholder detail-img" style="display: none; height: 100%; min-height: 250px;"><i class="fa-solid fa-car-rear" style="font-size: 3rem; color: var(--primary-color);"></i></div>`
     : `<div class="image-fallback-placeholder detail-img" style="display: flex; height: 100%; min-height: 250px; align-items: center; justify-content: center; background: #0c0e12;"><i class="fa-solid fa-car-rear" style="font-size: 3rem; color: var(--primary-color);"></i></div>`;
 
@@ -1001,10 +1052,10 @@ function openCarDetailModal(id) {
       </div>
 
       <div class="detail-info-pane">
-        <span class="detail-brand">${car.brand}</span>
+        <span class="detail-brand">${escapeHTML(car.brand)}</span>
         <div class="detail-title-row">
-          <h2 class="detail-title">${car.title}</h2>
-          <span class="detail-year">(${car.year})</span>
+          <h2 class="detail-title">${escapeHTML(car.title)}</h2>
+          <span class="detail-year">(${Number(car.year)})</span>
         </div>
 
         <div class="detail-price-row">
@@ -1077,7 +1128,7 @@ function openCarDetailModal(id) {
             <div class="detail-specs-subgrid">
               <div class="detail-spec-entry">
                 <span class="detail-spec-label">Owner Name</span>
-                <span class="detail-spec-value">${car.owner?.name ?? "Independent Dealer"}</span>
+                <span class="detail-spec-value">${escapeHTML(car.owner?.name ?? "Independent Dealer")}</span>
               </div>
               <div class="detail-spec-entry">
                 <span class="detail-spec-label">Identity Status</span>
@@ -1089,7 +1140,7 @@ function openCarDetailModal(id) {
           ${car.specialFeature ? `
             <div class="detail-special-note-box">
               <h5>Special Collector Telemetry</h5>
-              <p>${car.specialFeature}</p>
+              <p>${escapeHTML(car.specialFeature)}</p>
             </div>
           ` : ""}
         </div>
@@ -1432,7 +1483,9 @@ function executeDeleteCar() {
   if (car) {
     state.cars = state.cars.filter(c => c.id !== id);
     state.compare = state.compare.filter(cid => cid !== id);
+    state.favorites = state.favorites.filter(fid => fid !== id);
     saveCompareStateToSession();
+    saveFavoritesToLocalStorage();
     saveCarsToLocalStorage();
 
     showNotification(`De-registered ${car.title} successfully.`, "warning");

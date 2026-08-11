@@ -8,7 +8,7 @@
       "year": 1973,
       "price": 485000,
       "currency": "USD",
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Porsche_911_Carrera_RS_2.7_white-red_1973_b.jpg/1280px-Porsche_911_Carrera_RS_2.7_white-red_1973_b.jpg",
+      "image": "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&q=80&w=1280",
       "location": "Copenhagen, Denmark",
       "owner": {
         "name": "Oleksandr K.",
@@ -52,7 +52,7 @@
       "year": 1988,
       "price": 125000,
       "currency": "EUR",
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/BMW_M3_E30_%289354020942%29.jpg/1280px-BMW_M3_E30_%289354020942%29.jpg",
+      "image": "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&q=80&w=1280",
       "location": "Munich, Germany",
       "owner": {
         "name": "Hans M.",
@@ -96,7 +96,7 @@
       "year": 1994,
       "price": 145000,
       "currency": "USD",
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Toyota_Supra_JZA80_001.jpg/1280px-Toyota_Supra_JZA80_001.jpg",
+      "image": "https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&q=80&w=1280",
       "location": "Tokyo, Japan",
       "owner": {
         "name": "Hiroshi S.",
@@ -140,7 +140,7 @@
       "year": 1990,
       "price": 2800000,
       "currency": "USD",
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Ferrari_F40_20090510.jpg/1280px-Ferrari_F40_20090510.jpg",
+      "image": "https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&q=80&w=1280",
       "location": "Maranello, Italy",
       "owner": {
         "name": "Giovanni R.",
@@ -184,7 +184,7 @@
       "year": 2022,
       "price": 95000,
       "currency": "USD",
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/2018_Tesla_Model_S_100D_Front.jpg/1280px-2018_Tesla_Model_S_100D_Front.jpg",
+      "image": "https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&q=80&w=1280",
       "location": "Palo Alto, USA",
       "owner": {
         "name": "Sarah J.",
@@ -228,7 +228,7 @@
       "year": 1980,
       "price": 650000,
       "currency": "USD",
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Lamborghini_Countach_LP400%28S%29_%28cropped%29.jpg/1280px-Lamborghini_Countach_LP400%28S%29_%28cropped%29.jpg",
+      "image": "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?auto=format&fit=crop&q=80&w=1280",
       "location": "Sant'Agata, Italy",
       "owner": {
         "name": "Marcello G.",
@@ -272,7 +272,7 @@
       "year": 1969,
       "price": 45000,
       "currency": "USD",
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/69_Corvette_C3_Stingray.jpg/1280px-69_Corvette_C3_Stingray.jpg",
+      "image": "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&q=80&w=1280",
       "location": "Austin, USA",
       "owner": {
         "name": "Bobby T.",
@@ -316,7 +316,7 @@
       "year": 1955,
       "price": 1750000,
       "currency": "EUR",
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Mercedes-Benz_300_SL_Gullwing_%28W_198%29_-_Flickr_-_m93_%28cropped%29.jpg/1280px-Mercedes-Benz_300_SL_Gullwing_%28W_198%29_-_Flickr_-_m93_%28cropped%29.jpg",
+      "image": "https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&q=80&w=1280",
       "location": "Stuttgart, Germany",
       "owner": {
         "name": "Dieter S.",
@@ -360,7 +360,7 @@
       "year": 1999,
       "price": 220000,
       "currency": "USD",
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Nissan_Skyline_R34_GT-R_Active_Red.jpg/1280px-Nissan_Skyline_R34_GT-R_Active_Red.jpg",
+      "image": "https://images.unsplash.com/photo-1616422285623-13ff0162193c?auto=format&fit=crop&q=80&w=1280",
       "location": "Osaka, Japan",
       "owner": {
         "name": "Kenji T.",
@@ -404,7 +404,7 @@
       "year": 1964,
       "price": 950000,
       "currency": "GBP",
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Aston_Martin_DB5_-_Flickr_-_m93.jpg/1280px-Aston_Martin_DB5_-_Flickr_-_m93.jpg",
+      "image": "https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?auto=format&fit=crop&q=80&w=1280",
       "location": "London, UK",
       "owner": {
         "name": "Charles B.",
@@ -448,7 +448,7 @@
       "year": 1984,
       "price": 620000,
       "currency": "EUR",
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Audi_Sport_Quattro_-_Retro_Classics_2020_IMG_0396.jpg/1280px-Audi_Sport_Quattro_-_Retro_Classics_2020_IMG_0396.jpg",
+      "image": "https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?auto=format&fit=crop&q=80&w=1280",
       "location": "Vienna, Austria",
       "owner": {
         "name": "Walter R.",
@@ -492,7 +492,7 @@
       "year": 2002,
       "price": 110000,
       "currency": "USD",
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Mazda_RX-7_Spirit_R_Type_A_2002.jpg/1280px-Mazda_RX-7_Spirit_R_Type_A_2002.jpg",
+      "image": "https://images.unsplash.com/photo-1615887023516-9b6bcd559e87?auto=format&fit=crop&q=80&w=1280",
       "location": "Saitama, Japan",
       "owner": {
         "name": "Yuki M.",
@@ -536,7 +536,7 @@
       "year": 1995,
       "price": 20000000,
       "currency": "USD",
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/McLaren_F1_at_Gainsborough_02.jpg/1280px-McLaren_F1_at_Gainsborough_02.jpg",
+      "image": "https://images.unsplash.com/photo-1542282088-fe8426682b8f?auto=format&fit=crop&q=80&w=1280",
       "location": "Woking, UK",
       "owner": {
         "name": "Gordon M.",
@@ -580,7 +580,7 @@
       "year": 1970,
       "price": 95000,
       "currency": "USD",
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/1970_Ford_Mustang_Boss_302_Orange_at_2015_Rockville_Show_front_left.jpg/1280px-1970_Ford_Mustang_Boss_302_Orange_at_2015_Rockville_Show_front_left.jpg",
+      "image": "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&q=80&w=1280",
       "location": "Detroit, USA",
       "owner": {
         "name": "Frank R.",
@@ -624,7 +624,7 @@
       "year": 2023,
       "price": 315000,
       "currency": "USD",
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Porsche_992_GT3_RS_1X7A6263.jpg/1280px-Porsche_992_GT3_RS_1X7A6263.jpg",
+      "image": "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&q=80&w=1280",
       "location": "Zuffenhausen, Germany",
       "owner": {
         "name": "Max W.",
@@ -668,7 +668,7 @@
       "year": 2021,
       "price": 425000,
       "currency": "USD",
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Mercedes-AMG_GT_Black_Series_%28C_190%29_IMG_3659.jpg/1280px-Mercedes-AMG_GT_Black_Series_%28C_190%29_IMG_3659.jpg",
+      "image": "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&q=80&w=1280",
       "location": "Affalterbach, Germany",
       "owner": {
         "name": "Klaus K.",
@@ -712,7 +712,7 @@
       "year": 1969,
       "price": 135000,
       "currency": "USD",
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Dodge_Charger_RT_440_1969.jpg/1280px-Dodge_Charger_RT_440_1969.jpg",
+      "image": "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&q=80&w=1280",
       "location": "Los Angeles, USA",
       "owner": {
         "name": "Dominic T.",
@@ -756,7 +756,7 @@
       "year": 2019,
       "price": 550000,
       "currency": "USD",
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Lamborghini_Aventador_SVJ_IMG_1537.jpg/1280px-Lamborghini_Aventador_SVJ_IMG_1537.jpg",
+      "image": "https://images.unsplash.com/photo-1621135802920-133df287f89c?auto=format&fit=crop&q=80&w=1280",
       "location": "Geneva, Switzerland",
       "owner": {
         "name": "Jean P.",
@@ -800,7 +800,7 @@
       "year": 2021,
       "price": 185000,
       "currency": "USD",
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/2018_Land_Rover_Range_Rover_Autobiography_SDV8_Automatic_4.4_Front.jpg/1280px-2018_Land_Rover_Range_Rover_Autobiography_SDV8_Automatic_4.4_Front.jpg",
+      "image": "https://images.unsplash.com/photo-1606016159991-dfe4f2746ad5?auto=format&fit=crop&q=80&w=1280",
       "location": "Zurich, Switzerland",
       "owner": {
         "name": "Heinrich L.",
@@ -844,7 +844,7 @@
       "year": 1998,
       "price": 275000,
       "currency": "USD",
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/1998_Subaru_Impreza_22B-STI_Version_No._189.jpg/1280px-1998_Subaru_Impreza_22B-STI_Version_No._189.jpg",
+      "image": "https://images.unsplash.com/photo-1626847037657-fd3622613ce3?auto=format&fit=crop&q=80&w=1280",
       "location": "Edinburgh, Scotland",
       "owner": {
         "name": "Colin M.",
@@ -888,7 +888,7 @@
       "year": 2021,
       "price": 2200000,
       "currency": "USD",
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/2018_Porsche_911_reimagined_by_Singer_DLS.jpg/1280px-2018_Porsche_911_reimagined_by_Singer_DLS.jpg",
+      "image": "https://images.unsplash.com/photo-1605515298946-d062f2e9da53?auto=format&fit=crop&q=80&w=1280",
       "location": "Los Angeles, USA",
       "owner": {
         "name": "Rob D.",
